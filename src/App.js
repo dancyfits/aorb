@@ -22,12 +22,25 @@ class App extends Component {
     };
   }
 
+  handleAdd = name => {
+    this.setState({
+      list: [
+        ...this.state.list,
+        { name, rating: 0, id: this.state.list.length + 1 }
+      ]
+    });
+  };
+
   incrementRating = id => {
     this.setState({
       list: this.state.list.map(
         item => (item.id === id ? { ...item, rating: item.rating + 1 } : item)
       )
     });
+  };
+
+  onItemChange = e => {
+    this.setState({ name: e.target.value });
   };
 
   render() {
@@ -37,6 +50,7 @@ class App extends Component {
           <h1>A or B?</h1>
         </div>
         <List items={this.state.list} />
+        <AddItemForm items={this.state.list} onAdd={this.handleAdd} />
         <AorB
           items={sampleSize(this.state.list, 2)}
           onSelect={this.incrementRating}
@@ -57,6 +71,27 @@ const List = props => {
     </div>
   );
 };
+
+class AddItemForm extends React.Component {
+  render() {
+    return (
+      <div className="addItemForm">
+        <form
+          className="pure-form"
+          onSubmit={e => {
+            e.preventDefault();
+            this.props.onAdd(this.input.value);
+          }}
+        >
+          <input ref={el => (this.input = el)} type="text" />
+          <button type="submit" className="pure-button">
+            Add Item
+          </button>
+        </form>
+      </div>
+    );
+  }
+}
 
 const AorB = props => {
   return (
