@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { sampleSize, sortBy } from "lodash";
+import { sampleSize } from "lodash";
 import "purecss";
+import { List, AorB, Results, AddItemForm } from "./components";
 
 export const LIST = [
   { name: "Kung Fu Panda", rating: 0, id: 1 },
@@ -44,12 +45,12 @@ class App extends Component {
   aVsB = (winningId, losingId) => {
     r1 = 10^(winningId.rating/400);
     r2 = 10^(losingId.rating/400);
+
     e1 = r1/(r1 + r2);
     e2 = r2/(r1 + r2);
-    win = 1;
-    loss = 0;
-    winnerNewRating = winningId.rating + K * (win - e1)
-    loserNewRating = losingId.rating + K * (loss - e2)
+
+    winnerNewRating = winningId.rating + K * (1 - e1)
+    loserNewRating = losingId.rating + K * (0 - e2)
   }
 
   */
@@ -71,70 +72,5 @@ class App extends Component {
     );
   }
 }
-
-const List = props => {
-  return (
-    <div className="list pure-u-1-1">
-      <h2>List</h2>
-      <ul className="listItems">
-        {props.items.map(item => <li key={item.id}>{item.name}</li>)}
-      </ul>
-    </div>
-  );
-};
-
-class AddItemForm extends Component {
-  render() {
-    return (
-      <div className="addItemForm">
-        <form
-          className="pure-form"
-          onSubmit={e => {
-            e.preventDefault();
-            this.props.onAdd(this.input.value);
-          }}
-        >
-          <input ref={el => (this.input = el)} type="text" />
-          <button type="submit" className="pure-button">
-            Add Item
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
-
-const AorB = props => {
-  return (
-    <div className="aorb pure-g pure-u-1-1">
-      <h2 className="pure-u-1-1">A or B?</h2>
-      {props.items.map(item => (
-        <button
-          className="pure-button pure-u-1-2"
-          key={item.id}
-          onClick={() => props.onSelect(item.id)}
-        >
-          {item.name}
-        </button>
-      ))}
-    </div>
-  );
-};
-
-const Results = props => {
-  return (
-    <div className="results pure-u-1-1 pure-g">
-      <h2>Results</h2>
-      {sortBy(props.items, ["rating"])
-        .reverse()
-        .map(item => (
-          <div key={item.id}>
-            <p className="pure-u-1-2">{item.name}</p>
-            <p className="pure-u-1-2">{item.rating}</p>
-          </div>
-        ))}
-    </div>
-  );
-};
 
 export default App;
