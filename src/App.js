@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { sampleSize } from "lodash";
+import { sampleSize, sortBy } from "lodash";
 import "purecss";
 
 export const LIST = [
@@ -37,10 +37,6 @@ class App extends Component {
         item => (item.id === id ? { ...item, rating: item.rating + 1 } : item)
       )
     });
-  };
-
-  onItemChange = e => {
-    this.setState({ name: e.target.value });
   };
 
   render() {
@@ -114,12 +110,14 @@ const Results = props => {
   return (
     <div className="results pure-u-1-1 pure-g">
       <h2>Results</h2>
-      {props.items.map(item => (
-        <div key={item.id}>
-          <p className="pure-u-1-2">{item.name}</p>
-          <p className="pure-u-1-2">{item.rating}</p>
-        </div>
-      ))}
+      {sortBy(props.items, ["rating"])
+        .reverse()
+        .map(item => (
+          <div key={item.id}>
+            <p className="pure-u-1-2">{item.name}</p>
+            <p className="pure-u-1-2">{item.rating}</p>
+          </div>
+        ))}
     </div>
   );
 };
