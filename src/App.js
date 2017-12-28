@@ -39,6 +39,21 @@ class App extends Component {
     });
   };
 
+  /*
+
+  aVsB = (winningId, losingId) => {
+    r1 = 10^(winningId.rating/400);
+    r2 = 10^(losingId.rating/400);
+    e1 = r1/(r1 + r2);
+    e2 = r2/(r1 + r2);
+    win = 1;
+    loss = 0;
+    winnerNewRating = winningId.rating + K * (win - e1)
+    loserNewRating = losingId.rating + K * (loss - e2)
+  }
+
+  */
+
   render() {
     return (
       <div className="App pure-g">
@@ -68,7 +83,7 @@ const List = props => {
   );
 };
 
-class AddItemForm extends React.Component {
+class AddItemForm extends Component {
   render() {
     return (
       <div className="addItemForm">
