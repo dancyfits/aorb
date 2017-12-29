@@ -9,6 +9,7 @@ class AddItemForm extends Component {
           onSubmit={e => {
             e.preventDefault();
             this.props.onAdd(this.input.value);
+            this.input.value = "";
           }}
         >
           <input ref={el => (this.input = el)} type="text" />

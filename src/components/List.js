@@ -1,11 +1,17 @@
 import React from "react";
+import { map } from "lodash";
 
 const List = props => {
   return (
     <div className="list pure-u-1-1">
       <h2>List</h2>
       <ul className="listItems">
-        {props.items.map(item => <li key={item.id}>{item.name}</li>)}
+        {map(props.items, item => (
+          <li key={item.id}>
+            {item.name}
+            <button onClick={() => props.onDelete(item.id)}>X</button>
+          </li>
+        ))}
       </ul>
     </div>
   );

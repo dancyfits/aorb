@@ -5,10 +5,15 @@ body {
 }
 
 .App {
-  width: 1000px;
+  width: 600px;
   margin: 30px auto;
 }
 
 .results p {
   margin: 2px 0;
+}
+
+li button {
+  float: right;
+  clear: right;
 }
