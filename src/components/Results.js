@@ -3,16 +3,18 @@ import { sortBy } from "lodash";
 
 const Results = props => {
   return (
-    <div className="results pure-u-1-1 pure-g">
+    <div className="results">
       <h2>Results</h2>
-      {sortBy(Object.values(props.items), ["rating"])
-        .reverse()
-        .map(item => (
-          <div key={item.id}>
-            <p className="pure-u-1-2">{item.name}</p>
-            <p className="pure-u-1-2">{item.rating}</p>
-          </div>
-        ))}
+      <ol>
+        {sortBy(Object.values(props.items), ["rating"])
+          .reverse()
+          .map(item => (
+            <li className="itemName" key={item.id}>
+              {item.name}
+              <span className="itemRating">{item.rating}</span>
+            </li>
+          ))}
+      </ol>
     </div>
   );
 };

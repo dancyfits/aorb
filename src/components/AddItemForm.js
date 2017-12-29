@@ -5,7 +5,6 @@ class AddItemForm extends Component {
     return (
       <div className="addItemForm">
         <form
-          className="pure-form"
           onSubmit={e => {
             e.preventDefault();
             this.props.onAdd(this.input.value);
@@ -13,9 +12,7 @@ class AddItemForm extends Component {
           }}
         >
           <input ref={el => (this.input = el)} type="text" />
-          <button type="submit" className="pure-button">
-            Add Item
-          </button>
+          <button type="submit">Add Item</button>
         </form>
       </div>
     );

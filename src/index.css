@@ -2,6 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  font-size: 18px;
+  background-color: #fcfcfc;
+}
+
+ul li {
+  background-color: #fff;
 }
 
 .App {
@@ -9,11 +15,85 @@ body {
   margin: 30px auto;
 }
 
-.results p {
-  margin: 2px 0;
+h1,
+h2,
+h3,
+.aorb,
+.addItemForm {
+  text-align: center;
+}
+
+.results ol {
+  margin: 0;
+  padding: 0;
+}
+
+.results li {
+  padding: 5px;
+  font-size: 20px;
+  list-style-type: none;
+  counter-increment: step-counter;
+}
+
+.results li::before {
+  content: counter(step-counter) ".";
+  font-weight: bold;
+  padding: 0 10px 0 0;
+}
+
+span.itemRating {
+  float: right;
+}
+
+button {
+  background: none;
+  background-color: #fff;
+  border: 1px solid #222;
+  padding: 17px 30px 15px 30px;
+  margin: 10px 0px 10px 20px;
+  font-size: 18px;
+  transition: background 0.5s;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.listItems li {
+  list-style: none;
+  list-style-position: inside;
+  margin: 10px 0;
+  border: 1px solid #999;
+  padding: 17px 0 15px 15px;
 }
 
 li button {
   float: right;
   clear: right;
+  margin: 0;
+  border: 0;
+  padding: 0 10px;
+}
+
+input[type="text"] {
+  width: 383px;
+  border: 1px solid #999;
+  padding: 17px 30px 15px 30px;
+  font-size: 18px;
+  color: #999;
+  outline: 0;
+}
+
+input[type="text"]:focus {
+  border: 1px solid #222;
+}
+
+input[type="submit"] {
+  margin-right: 0 !important;
 }

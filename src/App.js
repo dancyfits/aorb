@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { sampleSize } from "lodash";
 import { unset } from "lodash/fp";
-import "purecss";
 import { List, AorB, Results, AddItemForm } from "./components";
 import battle from "./logic/battle";
 
@@ -53,8 +52,8 @@ class App extends Component {
     const aorbData = sampleSize(this.state.data, 2);
     const hasDataTest = aorbData.length >= 2;
     return (
-      <div className="App pure-g">
-        <div className="header pure-u-1-1">
+      <div className="App">
+        <div className="header">
           <h1>A or B?</h1>
         </div>
         <List items={this.state.data} onDelete={this.handleDelete} />
