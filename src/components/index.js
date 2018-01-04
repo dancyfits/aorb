@@ -1,7 +1,6 @@
-import List from "./List";
-import Results from "./Results";
-import AorB from "./AorB";
-import AddItemForm from "./AddItemForm";
+import List from "./List/List";
+import Results from "./Results/Results";
+import AorB from "./AorB/AorB";
+import AddItemForm from "./AddItemForm/AddItemForm";
 
 export { List, Results, AorB, AddItemForm };
-

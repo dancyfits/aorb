@@ -1,0 +1,27 @@
+.results ol {
+  margin: 0;
+  padding: 0;
+
+  .result {
+    display: flex;
+    padding: 5px;
+    font-size: 20px;
+    justify-content: space-between;
+    list-style-type: none;
+    counter-increment: step-counter;
+
+    &::before {
+      content: counter(step-counter) ".";
+      padding: 0 10px 0 0;
+      font-weight: bold;
+    }
+
+    .itemName {
+      flex-grow: 1;
+    }
+
+    .itemRating {
+      margin-left: 10px;
+    }
+  }
+}
