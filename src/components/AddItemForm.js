@@ -11,8 +11,14 @@ class AddItemForm extends Component {
             this.input.value = "";
           }}
         >
-          <input ref={el => (this.input = el)} type="text" />
-          <button type="submit">Add Item</button>
+          <input
+            ref={el => (this.input = el)}
+            type="text"
+            className="addItemInput"
+          />
+          <button type="submit" className="addItemSubmit">
+            Add Item
+          </button>
         </form>
       </div>
     );

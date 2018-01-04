@@ -1,62 +1,78 @@
+// Main
+// TODO Split into components
+
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 .group:after {
   content: "";
   display: table;
-  clear: both; }
+  clear: both;
+}
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   font-size: 18px;
-  background-color: #fcfcff; }
+  background-color: #fcfcff;
+}
 
 ul li {
-  background-color: #fff; }
+  background-color: #fff;
+}
 
 .App {
   width: 100%;
   max-width: 600px;
   min-width: 400px;
-  margin: 30px auto; }
+  margin: 30px auto;
+}
 
 h1,
 h2,
 h3,
 .aorb,
 .addItemForm {
-  text-align: center; }
+  text-align: center;
+}
 
 .results ol {
   margin: 0;
-  padding: 0; }
-  .results ol .result {
+  padding: 0;
+  .result {
     padding: 5px;
     font-size: 20px;
     list-style-type: none;
     counter-increment: step-counter;
     display: flex;
-    justify-content: space-between; }
-    .results ol .result::before {
+    justify-content: space-between;
+    &::before {
       content: counter(step-counter) ".";
       font-weight: bold;
-      padding: 0 10px 0 0; }
-    .results ol .result .itemName {
-      flex-grow: 1; }
-    .results ol .result .itemRating {
-      margin-left: 10px; }
+      padding: 0 10px 0 0;
+    }
+    .itemName {
+      flex-grow: 1;
+    }
+    .itemRating {
+      margin-left: 10px;
+    }
+  }
+}
 
 ul {
   width: 100%;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+}
 
 .listItems li {
   list-style: none;
@@ -64,7 +80,8 @@ ul {
   margin: 10px 0;
   border: 1px solid #999;
   border-radius: 3px;
-  padding: 17px 0 15px 15px; }
+  padding: 17px 0 15px 15px;
+}
 
 li button {
   float: right;
@@ -73,11 +90,15 @@ li button {
   border: 0;
   padding: 0 10px;
   outline: none;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
-.addItemForm form {
-  display: flex;
-  justify-content: space-between; }
+.addItemForm {
+  form {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
 input[type="text"] {
   border: 1px solid #999;
@@ -87,9 +108,11 @@ input[type="text"] {
   outline: none;
   border-radius: 3px;
   transition: border 0.5s;
-  flex-grow: 1; }
-  input[type="text"]:focus {
-    border: 1px solid #222; }
+  flex-grow: 1;
+  &:focus {
+    border: 1px solid #222;
+  }
+}
 
 .addItemSubmit {
   margin: 0 0 0 20px;
@@ -100,23 +123,28 @@ input[type="text"] {
   font-size: 18px;
   border-radius: 3px;
   transition: background 0.5s;
-  outline: none; }
-  .addItemSubmit:hover {
-    background-color: #bef; }
+  outline: none;
+  &:hover {
+    background-color: #bef;
+  }
+}
 
 .aorb {
   margin-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; }
-  .aorb h2 {
-    width: 100%; }
-  .aorb .buttonA {
-    margin: 10px 10px 10px 0; }
-  .aorb .buttonB {
-    margin: 10px 0 10px 10px; }
-  .aorb .buttonA,
-  .aorb .buttonB {
+  justify-content: space-around;
+  h2 {
+    width: 100%;
+  }
+  .buttonA {
+    margin: 10px 10px 10px 0;
+  }
+  .buttonB {
+    margin: 10px 0 10px 10px;
+  }
+  .buttonA,
+  .buttonB {
     flex: 1;
     border-radius: 3px;
     user-select: none;
@@ -127,7 +155,9 @@ input[type="text"] {
     border: 1px solid #222;
     padding: 17px 30px 15px 30px;
     font-size: 18px;
-    transition: background 0.5s; }
-    .aorb .buttonA:hover,
-    .aorb .buttonB:hover {
-      background-color: #bef; }
+    transition: background 0.5s;
+    &:hover {
+      background-color: #bef;
+    }
+  }
+}

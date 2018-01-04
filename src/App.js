@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">
-          <h1>A or B?</h1>
+          <h1>A or B</h1>
         </div>
         <List items={this.state.data} onDelete={this.handleDelete} />
         <AddItemForm items={this.state.data} onAdd={this.handleAdd} />

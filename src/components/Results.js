@@ -9,8 +9,8 @@ const Results = props => {
         {sortBy(Object.values(props.items), ["rating"])
           .reverse()
           .map(item => (
-            <li className="itemName" key={item.id}>
-              {item.name}
+            <li className="result" key={item.id}>
+              <span className="itemName">{item.name}</span>
               <span className="itemRating">{item.rating}</span>
             </li>
           ))}
