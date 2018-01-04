@@ -1,4 +1,5 @@
-#A or B
+# A or B
+*WIP*
 
 A non-transitive information comparison system
 
