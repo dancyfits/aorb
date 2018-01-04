@@ -1,3 +1,19 @@
+.list {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  .toggleListButton {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px 8px;
+    outline: none;
+    margin: 0 0 15px 0;
+  }
+  h2 {
+    width: 100%;
+  }
+}
+
 .listItems {
   width: 100%;
   margin: 0;

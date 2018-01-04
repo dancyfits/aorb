@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {}
+      data: {},
+      showList: true
     };
   }
 
@@ -48,6 +49,14 @@ class App extends Component {
     });
   };
 
+  toggleShowList = () => {
+    if (this.state.showList === true) {
+      this.setState({ showList: false });
+    } else if (this.state.showList === false) {
+      this.setState({ showList: true });
+    }
+  };
+
   render() {
     const aorbData = sampleSize(this.state.data, 2);
     const hasDataTest = aorbData.length >= 2;
@@ -56,7 +65,12 @@ class App extends Component {
         <div className="header">
           <h1>A or B</h1>
         </div>
-        <List items={this.state.data} onDelete={this.handleDelete} />
+        <List
+          items={this.state.data}
+          onDelete={this.handleDelete}
+          showList={this.state.showList}
+          toggleShowList={this.toggleShowList}
+        />
         <AddItemForm items={this.state.data} onAdd={this.handleAdd} />
         {hasDataTest && <AorB items={aorbData} onSelect={this.handleSelect} />}
         {hasDataTest && <Results items={this.state.data} />}
