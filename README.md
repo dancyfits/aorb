@@ -1,5 +1,6 @@
 # A or B
 *WIP*
+[Demo](https://dancyfits.github.io/aorb/)
 
 A non-transitive information comparison system
 
