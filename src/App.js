@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { sampleSize } from "lodash";
+import { sampleSize, uniqueId } from "lodash";
 import { unset } from "lodash/fp";
 import { List, AorB, Results, AddItemForm } from "./components";
 import battle from "./logic/battle";
@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   handleAdd = name => {
-    const id = Object.values(this.state.data).length + 1;
+    const id = uniqueId();
     this.setState({
       data: {
         ...this.state.data,
