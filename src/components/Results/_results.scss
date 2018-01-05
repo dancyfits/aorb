@@ -1,27 +1,42 @@
-.results ol {
-  margin: 0;
-  padding: 0;
+.results {
+  margin-bottom: 30px;
 
-  .result {
-    display: flex;
-    padding: 5px;
-    font-size: 20px;
-    justify-content: space-between;
-    list-style-type: none;
-    counter-increment: step-counter;
+  ol {
+    margin: 0;
+    padding: 15px;
+    background: $secondBackground;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    box-shadow: 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
 
-    &::before {
-      content: counter(step-counter) ".";
-      padding: 0 10px 0 0;
-      font-weight: bold;
-    }
+    .result {
+      display: flex;
+      padding: 5px;
+      font-size: 20px;
+      justify-content: space-between;
+      list-style-type: none;
+      counter-increment: step-counter;
+      border-bottom: 1px solid #3a3a3a;
+      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+        1px 1px 0 #333;
+      &:last-child {
+        border-bottom: none;
+      }
 
-    .itemName {
-      flex-grow: 1;
-    }
+      &::before {
+        content: counter(step-counter) ".";
+        padding: 0 10px 0 0;
+        font-weight: bold;
+      }
 
-    .itemRating {
-      margin-left: 10px;
+      .itemName {
+        flex-grow: 1;
+      }
+
+      .itemRating {
+        margin-left: 10px;
+      }
     }
   }
 }
+

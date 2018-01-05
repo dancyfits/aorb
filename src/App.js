@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { sampleSize, uniqueId } from "lodash";
 import { unset } from "lodash/fp";
+import "normalizecss/normalize.css";
 import { List, AorB, Results, AddItemForm } from "./components";
 import battle from "./logic/battle";
 
@@ -62,18 +63,23 @@ class App extends Component {
     const hasDataTest = aorbData.length >= 2;
     return (
       <div className="App">
-        <div className="header">
-          <h1>A or B</h1>
+        <div className="column1">
+          <List
+            items={this.state.data}
+            onDelete={this.handleDelete}
+            showList={this.state.showList}
+            toggleShowList={this.toggleShowList}
+          />
+          <AddItemForm items={this.state.data} onAdd={this.handleAdd} />
         </div>
-        <List
-          items={this.state.data}
-          onDelete={this.handleDelete}
-          showList={this.state.showList}
-          toggleShowList={this.toggleShowList}
-        />
-        <AddItemForm items={this.state.data} onAdd={this.handleAdd} />
-        {hasDataTest && <AorB items={aorbData} onSelect={this.handleSelect} />}
-        {hasDataTest && <Results items={this.state.data} />}
+        <div className="column2">
+          {hasDataTest && (
+            <AorB items={aorbData} onSelect={this.handleSelect} />
+          )}
+        </div>
+        <div className="column3">
+          {hasDataTest && <Results items={this.state.data} />}
+        </div>
       </div>
     );
   }

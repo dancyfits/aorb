@@ -5,10 +5,10 @@ const AorB = ({ items: [a, b], onSelect }) => {
     <div className="aorb">
       <h2>Choose one</h2>
       <button className="buttonA" key={a.id} onClick={() => onSelect(a, b)}>
-        {a.name}
+        <span className="buttonName">{a.name}</span>
       </button>
       <button className="buttonB" key={b.id} onClick={() => onSelect(b, a)}>
-        {b.name}
+        <span className="buttonName">{b.name}</span>
       </button>
     </div>
   );

@@ -17,7 +17,7 @@ class AddItemForm extends Component {
             className="addItemInput"
           />
           <button type="submit" className="addItemSubmit">
-            Add Item
+            <span className="buttonName">Add Item</span>
           </button>
         </form>
       </div>

@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+$boxShadowRadius: 0;
+$boxShadowSpread: 0;
+$boxShadowColor: transparent;
+
+$mainFontFamily: "Open Sans", sans-serif;
+
+$mainBackground: #222;
+$secondBackground: linear-gradient(180deg, #444, #4a4a4a 50%);
+$mainFontColor: #ddd;
+$headerColor: #ddd;
+$borderColor: #000;
+$buttonBackground: linear-gradient(0deg, #444, #4a4a4a 50%);
+$buttonHover: linear-gradient(180deg, #444, #4a4a4a 50%);
+
 @import "components/AddItemForm/_additemform.scss",
   "components/Results/_results.scss",
   "components/List/_list.scss",
@@ -5,6 +21,7 @@
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *,
@@ -16,24 +33,49 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #fcfcff;
-  font-family: sans-serif;
+  background: $mainBackground;
+  background-size: cover;
+  color: $mainFontColor;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: $mainFontFamily;
   font-size: 18px;
-}
-
-ul li {
-  background-color: #fff;
 }
 
 .App {
   width: 100%;
-  min-width: 400px;
-  max-width: 600px;
-  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 h1,
 h2,
 h3 {
   text-align: center;
+  color: $headerColor;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+// Layout
+
+.column1,
+.column2,
+.column3 {
+  flex: 1;
+  padding: 0 15px !important;
+}
+
+@media (max-width: 1000px) {
+  .column1 {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .column2,
+  .column3 {
+    flex: 0 0 100%;
+  }
 }

@@ -1,6 +1,5 @@
 .aorb {
   display: flex;
-  margin-bottom: 40px;
   text-align: center;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -10,29 +9,34 @@
   }
 
   .buttonA {
-    margin: 10px 10px 10px 0;
+    margin: 0 10px 10px 0;
   }
 
   .buttonB {
-    margin: 10px 0 10px 10px;
+    margin: 0 0 10px 0;
   }
 
   .buttonA,
   .buttonB {
     padding: 17px 30px 15px 30px;
-    border: 1px solid #222;
+    border: 1px solid $borderColor;
     border-radius: 3px;
+    box-shadow: 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
     background: none;
-    background-color: #fff;
+    background: $buttonBackground;
     outline: none;
     font-size: 18px;
     flex: 1;
-    transition: background 0.5s;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
 
+    .buttonName {
+      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+        1px 1px 0 #333;
+    }
+
     &:hover {
-      background-color: #bef;
+      background: $buttonHover;
     }
   }
 }

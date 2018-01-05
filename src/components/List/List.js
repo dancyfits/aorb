@@ -14,7 +14,7 @@ const List = props => {
       <h2>List</h2>
       {Object.values(props.items).length >= 2 && (
         <button onClick={props.toggleShowList} className="toggleListButton">
-          {buttonText(props)}
+          <span className="buttonName">{buttonText(props)}</span>
         </button>
       )}
       {props.showList === true && (
@@ -22,7 +22,7 @@ const List = props => {
           {map(props.items, item => (
             <li key={item.id}>
               {item.name}
-              <button onClick={() => props.onDelete(item.id)}>X</button>
+              <button onClick={() => props.onDelete(item.id)}>✕</button>
             </li>
           ))}
         </ul>
