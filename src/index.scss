@@ -47,6 +47,7 @@ body {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 h1,
@@ -65,11 +66,13 @@ h3 {
 .column3 {
   flex: 1;
   padding: 0 15px !important;
+  max-width: 33%;
 }
 
 @media (max-width: 1000px) {
   .column1 {
     flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 

@@ -72,14 +72,18 @@ class App extends Component {
           />
           <AddItemForm items={this.state.data} onAdd={this.handleAdd} />
         </div>
-        <div className="column2">
-          {hasDataTest && (
+
+        {hasDataTest && (
+          <div className="column2">
             <AorB items={aorbData} onSelect={this.handleSelect} />
-          )}
-        </div>
-        <div className="column3">
-          {hasDataTest && <Results items={this.state.data} />}
-        </div>
+          </div>
+        )}
+
+        {hasDataTest && (
+          <div className="column3">
+            <Results items={this.state.data} />
+          </div>
+        )}
       </div>
     );
   }
