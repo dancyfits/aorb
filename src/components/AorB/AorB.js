@@ -10,6 +10,11 @@ const AorB = ({ items: [a, b], onSelect }) => {
       <button className="buttonB" key={b.id} onClick={() => onSelect(b, a)}>
         <span className="buttonName">{b.name}</span>
       </button>
+      <p>
+        Pick which of these two you favor (or disfavor, depending on how you
+        want the list ranked). You will see the same items more than once. The
+        more you vote, the more accurate the results are.
+      </p>
     </div>
   );
 };

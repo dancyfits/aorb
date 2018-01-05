@@ -8,6 +8,11 @@
     width: 100%;
   }
 
+  p {
+    color: darken($mainFontColor, 40%);
+    font-style: italic;
+  }
+
   .buttonA {
     margin: 0 10px 10px 0;
   }
