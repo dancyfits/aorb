@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { sampleSize, uniqueId } from "lodash";
+import { sampleSize, uniqueId, forEach, merge } from "lodash";
 import { unset } from "lodash/fp";
 import "normalizecss/normalize.css";
 import { List, AorB, Results, AddItemForm } from "./components";
@@ -72,6 +72,13 @@ class App extends Component {
     this.updateRatings(itemsToUpdate);
   };
 
+  resetResults = () => {
+    const resetId = id => {
+      this.setState(merge(id, { rating: 1000 }));
+    };
+    forEach(this.state.data, resetId);
+  };
+
   updateRatings = ([a, b]) => {
     this.setState({
       data: { ...this.state.data, [a.id]: a, [b.id]: b }
@@ -109,12 +116,7 @@ class App extends Component {
         )}
         {this.state.showList === true && (
           <div className="column1">
-            <List
-              items={this.state.data}
-              onDelete={this.handleDelete}
-              showList={this.state.showList}
-              toggleShowList={this.toggleShowList}
-            />
+            <List items={this.state.data} onDelete={this.handleDelete} />
             <AddItemForm items={this.state.data} onAdd={this.handleAdd} />
           </div>
         )}
@@ -128,7 +130,7 @@ class App extends Component {
         {this.state.showResults === true &&
           hasDataTest && (
             <div className="column3">
-              <Results items={this.state.data} />
+              <Results items={this.state.data} reset={this.resetResults} />
             </div>
           )}
       </div>

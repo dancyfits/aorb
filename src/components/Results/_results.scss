@@ -38,4 +38,23 @@
       }
     }
   }
+  button {
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    background: $buttonBackground;
+    padding: 4px 8px;
+    margin: 10px 0 0 0;
+    outline: none;
+    font-size: 14px;
+    float: right;
+
+    .buttonName {
+      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+        1px 1px 0 #333;
+    }
+
+    &:hover {
+      background: $buttonHover;
+    }
+  }
 }

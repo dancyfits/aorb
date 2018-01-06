@@ -15,6 +15,9 @@ const Results = props => {
             </li>
           ))}
       </ol>
+      <button onClick={props.reset}>
+        <span className="buttonName">Reset ratings</span>
+      </button>
     </div>
   );
 };
