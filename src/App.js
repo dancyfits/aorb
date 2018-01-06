@@ -5,12 +5,40 @@ import "normalizecss/normalize.css";
 import { List, AorB, Results, AddItemForm } from "./components";
 import battle from "./logic/battle";
 
+const ToggleButtons = props => {
+  const listButtonText = props => {
+    if (props.showList === true) {
+      return "Hide list";
+    } else if (props.showList === false) {
+      return "Show list";
+    }
+  };
+  const resultsButtonText = props => {
+    if (props.showResults === true) {
+      return "Hide results";
+    } else if (props.showResults === false) {
+      return "Show results";
+    }
+  };
+  return (
+    <div className="toggleButtons">
+      <button onClick={props.toggleShowResults} className="toggleResultsButton">
+        <span className="buttonName">{resultsButtonText(props)}</span>
+      </button>
+      <button onClick={props.toggleShowList} className="toggleListButton">
+        <span className="buttonName">{listButtonText(props)}</span>
+      </button>
+    </div>
+  );
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: {},
-      showList: true
+      showList: true,
+      showResults: true
     };
   }
 
@@ -58,20 +86,38 @@ class App extends Component {
     }
   };
 
+  toggleShowResults = () => {
+    if (this.state.showResults === true) {
+      this.setState({ showResults: false });
+    } else if (this.state.showResults === false) {
+      this.setState({ showResults: true });
+    }
+  };
+
   render() {
     const aorbData = sampleSize(this.state.data, 2);
     const hasDataTest = aorbData.length >= 2;
     return (
       <div className="App">
-        <div className="column1">
-          <List
-            items={this.state.data}
-            onDelete={this.handleDelete}
+        {hasDataTest && (
+          <ToggleButtons
             showList={this.state.showList}
+            showResults={this.state.showResults}
             toggleShowList={this.toggleShowList}
+            toggleShowResults={this.toggleShowResults}
           />
-          <AddItemForm items={this.state.data} onAdd={this.handleAdd} />
-        </div>
+        )}
+        {this.state.showList === true && (
+          <div className="column1">
+            <List
+              items={this.state.data}
+              onDelete={this.handleDelete}
+              showList={this.state.showList}
+              toggleShowList={this.toggleShowList}
+            />
+            <AddItemForm items={this.state.data} onAdd={this.handleAdd} />
+          </div>
+        )}
 
         {hasDataTest && (
           <div className="column2">
@@ -79,11 +125,12 @@ class App extends Component {
           </div>
         )}
 
-        {hasDataTest && (
-          <div className="column3">
-            <Results items={this.state.data} />
-          </div>
-        )}
+        {this.state.showResults === true &&
+          hasDataTest && (
+            <div className="column3">
+              <Results items={this.state.data} />
+            </div>
+          )}
       </div>
     );
   }

@@ -2,25 +2,6 @@
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
-  .toggleListButton {
-    border: 1px solid $borderColor;
-    border-radius: 3px;
-    background: $buttonBackground;
-    padding: 4px 8px;
-    outline: none;
-    font-size: 14px;
-    margin: -44px 0 15px 0;
-    transition: background 0.5s;
-
-    .buttonName {
-      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
-        1px 1px 0 #333;
-    }
-
-    &:hover {
-      background: $buttonHover;
-    }
-  }
   h2 {
     width: 100%;
   }
