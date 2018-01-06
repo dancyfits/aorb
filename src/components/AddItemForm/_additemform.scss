@@ -43,4 +43,9 @@
       background: $buttonHover;
     }
   }
+
+  p {
+    color: darken($mainFontColor, 40%);
+    font-style: italic;
+  }
 }

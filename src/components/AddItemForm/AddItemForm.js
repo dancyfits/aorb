@@ -20,6 +20,11 @@ class AddItemForm extends Component {
             <span className="buttonName">Add Item</span>
           </button>
         </form>
+        <p>
+          Add things you'd like to compare (i.e. your favorite movies, most
+          hated celebrities, etc.). More than one person can add to the list and
+          vote on comparisons.
+        </p>
       </div>
     );
   }
