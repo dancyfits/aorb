@@ -1,8 +1,8 @@
 export default (winner, loser) => {
-  const K = 32;
+  const K = 60;
 
-  const r1 = 10 ** (winner.rating / 400);
-  const r2 = 10 ** (loser.rating / 400);
+  const r1 = 10 ** (winner.rating / 300);
+  const r2 = 10 ** (loser.rating / 300);
 
   const e1 = r1 / (r1 + r2);
   const e2 = r2 / (r1 + r2);
@@ -12,4 +12,3 @@ export default (winner, loser) => {
 
   return [winner, loser];
 };
-

@@ -56,7 +56,7 @@ class App extends Component {
     this.setState({
       data: {
         ...this.state.data,
-        [id]: { name, rating: 1500, id }
+        [id]: { name, rating: 1000, id }
       }
     });
   };
