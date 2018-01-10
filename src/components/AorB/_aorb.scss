@@ -1,8 +1,8 @@
 .aorb {
   display: flex;
-  text-align: center;
   flex-wrap: wrap;
   justify-content: space-around;
+  text-align: center;
 
   h2 {
     width: 100%;
@@ -23,15 +23,15 @@
 
   .buttonA,
   .buttonB {
-    padding: 17px 30px 15px 30px;
+    background: none;
+    background: $buttonBackground;
     border: 1px solid $borderColor;
     border-radius: 3px;
     box-shadow: 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
-    background: none;
-    background: $buttonBackground;
-    outline: none;
-    font-size: 18px;
     flex: 1;
+    font-size: 18px;
+    outline: none;
+    padding: 17px 30px 15px 30px;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
 

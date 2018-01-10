@@ -2,31 +2,32 @@
   margin-bottom: 30px;
 
   ol {
-    margin: 0;
-    padding: 15px;
     background: $secondBackground;
     border: 1px solid $borderColor;
     border-radius: 3px;
     box-shadow: 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
+    margin: 0;
+    padding: 15px;
 
     .result {
+      border-bottom: 1px solid #3a3a3a;
+      counter-increment: step-counter;
       display: flex;
-      padding: 10px 5px;
       font-size: 20px;
       justify-content: space-between;
       list-style-type: none;
-      counter-increment: step-counter;
-      border-bottom: 1px solid #3a3a3a;
+      padding: 10px 5px;
       text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
         1px 1px 0 #333;
+
       &:last-child {
         border-bottom: none;
       }
 
       &::before {
         content: counter(step-counter) ".";
-        padding: 0 10px 0 0;
         font-weight: bold;
+        padding: 0 10px 0 0;
       }
 
       .itemName {
@@ -38,15 +39,16 @@
       }
     }
   }
+
   button {
+    background: $buttonBackground;
     border: 1px solid $borderColor;
     border-radius: 3px;
-    background: $buttonBackground;
-    padding: 4px 8px;
+    float: right;
+    font-size: 14px;
     margin: 10px 0 0 0;
     outline: none;
-    font-size: 14px;
-    float: right;
+    padding: 4px 8px;
 
     .buttonName {
       text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,

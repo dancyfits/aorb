@@ -30,37 +30,37 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
   background: $mainBackground;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: cover;
   color: $mainFontColor;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   font-family: $mainFontFamily;
   font-size: 18px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 h1 {
+  font-family: "Carter One", sans-serif;
   font-size: 4em !important;
   font-weight: 400 !important;
-  font-family: "Carter One", sans-serif;
   margin: 15px auto 0 auto !important;
 }
 
 h1,
 h2,
 h3 {
-  text-align: center;
   color: $headerColor;
+  text-align: center;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
@@ -71,19 +71,21 @@ h3 {
 .column2,
 .column3 {
   flex: 1;
-  padding: 0 15px !important;
   max-width: 33%;
+  padding: 0 15px !important;
 }
 
 @media (max-width: 1100px) {
   .column1 {
     flex: 0 0 100%;
   }
+
   .column1,
   .column2,
   .column3 {
     max-width: 100%;
   }
+
   .toggleButtons {
     right: 15px !important;
   }
@@ -94,6 +96,7 @@ h3 {
   .column3 {
     flex: 0 0 100%;
   }
+
   .toggleButtons {
     max-width: 150px;
   }
@@ -103,17 +106,18 @@ h3 {
 
 .toggleButtons {
   position: absolute;
-  top: 95px;
   right: 30px;
+  top: 95px;
+
   button {
+    background: $buttonBackground;
     border: 1px solid $borderColor;
     border-radius: 3px;
-    background: $buttonBackground;
-    padding: 4px 8px;
+    float: right;
+    font-size: 14px;
     margin: 5px;
     outline: none;
-    font-size: 14px;
-    float: right;
+    padding: 4px 8px;
 
     .buttonName {
       text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
