@@ -13,5 +13,3 @@ Try adding some movies or bands you like.  Then click one of the two options to 
 A non-transitive information comparison system.  Takes a list and allows you to pick between two list items at a time to rank the list.  Currently uses the ELO rating algorithm (how chess players get their rating).  Advantage is it accounts for answers that for whatever reason compete with a previous one (i.e. You rated Kung Fu Panda higher than Inception, but your girlfriend disagreed...)
 
 Sensical explanation coming soon.
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
