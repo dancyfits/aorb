@@ -1,0 +1,355 @@
+// Temporarily sass until parcel fixes imports/postcss
+
+@import url("https://fonts.googleapis.com/css?family=Carter+One|Open+Sans");
+
+$boxShadowRadius: 0;
+$boxShadowSpread: 0;
+$boxShadowColor: transparent;
+
+$mainFontFamily: "Open Sans", sans-serif;
+
+$mainBackground: #222;
+$secondBackground: linear-gradient(180deg, #444, #4a4a4a 50%);
+$mainFontColor: #ddd;
+$headerColor: #ddd;
+$borderColor: #000;
+$buttonBackground: linear-gradient(0deg, #444, #4a4a4a 50%);
+$buttonHover: linear-gradient(180deg, #444, #4a4a4a 50%);
+
+/* TODO Temporary until imports fixed in parcel
+@import "components/AddItemForm/additemform.css",
+  "components/Results/results.css",
+  "components/List/list.css",
+  "components/AorB/aorb.css"; */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  background: $mainBackground;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $mainFontColor;
+  font-family: $mainFontFamily;
+  font-size: 18px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Carter One", sans-serif;
+  font-size: 4em !important;
+  font-weight: 400 !important;
+  margin: 15px auto 0 auto !important;
+}
+
+h1,
+h2,
+h3 {
+  color: $headerColor;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+// Layout
+
+.column1,
+.column2,
+.column3 {
+  flex: 1;
+  max-width: 33%;
+  padding: 0 15px !important;
+}
+
+@media (max-width: 1100px) {
+  .column1 {
+    flex: 0 0 100%;
+  }
+
+  .column1,
+  .column2,
+  .column3 {
+    max-width: 100%;
+  }
+
+  .toggleButtons {
+    right: 15px !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .column2,
+  .column3 {
+    flex: 0 0 100%;
+  }
+
+  .toggleButtons {
+    max-width: 150px;
+  }
+}
+
+// Toggle Buttons
+
+.toggleButtons {
+  position: absolute;
+  right: 30px;
+  top: 95px;
+
+  button {
+    background: $buttonBackground;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    float: right;
+    font-size: 14px;
+    margin: 5px;
+    outline: none;
+    padding: 4px 8px;
+
+    .buttonName {
+      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+        1px 1px 0 #333;
+    }
+
+    &:hover {
+      background: $buttonHover;
+    }
+  }
+}
+
+// TODO get rid of this ∨∨∨
+// list
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  h2 {
+    width: 100%;
+  }
+}
+
+.listItems {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  li {
+    background: $secondBackground;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    box-shadow: inset 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
+    list-style: none;
+    list-style-position: inside;
+    margin: 10px 0;
+    padding: 17px 0 15px 15px;
+    text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+      1px 1px 0 #333;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    button {
+      background: transparent;
+      border: 0;
+      clear: right;
+      cursor: pointer;
+      float: right;
+      font-size: 12px;
+      margin: -12px 0 0 0;
+      outline: none;
+      padding: 0 10px;
+
+      &:hover {
+        color: darken($mainFontColor, 20%);
+      }
+    }
+  }
+}
+
+// form
+
+.addItemForm {
+  text-align: center;
+
+  form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input[type="text"] {
+    background: linear-gradient(180deg, #555, #5a5a5a 50%);
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    box-shadow: inset 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
+    color: #999;
+    flex-grow: 1;
+    font-size: 18px;
+    outline: none;
+    padding: 17px 15px 15px 15px;
+
+    &:focus {
+      background: $secondBackground;
+    }
+  }
+
+  .addItemSubmit {
+    background: none;
+    background: $buttonBackground;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    box-shadow: 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
+    font-size: 18px;
+    margin: 0 0 0 10px;
+    outline: none;
+    padding: 17px 30px 15px 30px;
+    transition: background 0.5s;
+
+    .buttonName {
+      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+        1px 1px 0 #333;
+    }
+
+    &:hover {
+      background: $buttonHover;
+    }
+  }
+
+  p {
+    color: darken($mainFontColor, 40%);
+    font-style: italic;
+  }
+}
+
+// AorB
+
+.aorb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+
+  h2 {
+    width: 100%;
+  }
+
+  p {
+    color: darken($mainFontColor, 40%);
+    font-style: italic;
+  }
+
+  .buttonA {
+    margin: 0 10px 10px 0;
+  }
+
+  .buttonB {
+    margin: 0 0 10px 0;
+  }
+
+  .buttonA,
+  .buttonB {
+    background: none;
+    background: $buttonBackground;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    box-shadow: 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
+    flex: 1;
+    font-size: 18px;
+    outline: none;
+    padding: 17px 30px 15px 30px;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+
+    .buttonName {
+      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+        1px 1px 0 #333;
+    }
+
+    &:hover {
+      background: $buttonHover;
+    }
+  }
+}
+
+// results
+
+.results {
+  margin-bottom: 30px;
+
+  ol {
+    background: $secondBackground;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    box-shadow: 0 0 $boxShadowRadius $boxShadowSpread $boxShadowColor;
+    margin: 0;
+    padding: 15px;
+
+    .result {
+      border-bottom: 1px solid #3a3a3a;
+      counter-increment: step-counter;
+      display: flex;
+      font-size: 20px;
+      justify-content: space-between;
+      list-style-type: none;
+      padding: 10px 5px;
+      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+        1px 1px 0 #333;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::before {
+        content: counter(step-counter) ".";
+        font-weight: bold;
+        padding: 0 10px 0 0;
+      }
+
+      .itemName {
+        flex-grow: 1;
+      }
+
+      .itemRating {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  button {
+    background: $buttonBackground;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    float: right;
+    font-size: 14px;
+    margin: 10px 0 0 0;
+    outline: none;
+    padding: 4px 8px;
+
+    .buttonName {
+      text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+        1px 1px 0 #333;
+    }
+
+    &:hover {
+      background: $buttonHover;
+    }
+  }
+}
