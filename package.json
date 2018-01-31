@@ -6,8 +6,10 @@
   "author": "Daniel Fitzpatrick",
   "license": "MIT",
   "scripts": {
-    "start": "parcel index.html ",
-    "build": "parcel build index.html --no-minify --public-url /"
+    "watch": "node-sass-chokidar src/index.scss -o src/ --watch --recursive",
+    "start-parcel": "parcel src/index.html",
+    "start": "npm-run-all -p watch start-parcel",
+    "build": "parcel build src/index.html --no-minify --public-url /"
   },
   "dependencies": {
     "fs-extra": "^5.0.0",
@@ -27,6 +29,8 @@
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.4.0",
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.1.2",
     "parcel-bundler": "^1.4.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-modules": "^1.1.0",
