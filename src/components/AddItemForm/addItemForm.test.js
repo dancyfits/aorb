@@ -1,21 +1,25 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
 import AddItemForm from "./AddItemForm";
 
-it("adds input to item list when submit button is clicked", () => {
-  let result = somestring;
+describe("AddItemForm", () => {
+  it("passes input when submit button is clicked", () => {
+    let input = "string";
 
-  const wrapper = shallow(<AddItemForm />);
+    let wrapper = shallow(<AddItemForm onAdd="somethingsomethingvalue" />);
 
-  const addItemInput = wrapper.find(".addItemInput");
-  const addItemSubmit = wrapper.find(".addItemSubmit");
+    const addItemInput = wrapper.find(".addItemInput");
+    const addItemSubmit = wrapper.find(".addItemSubmit");
 
-  addItemSubmit.simulate("click");
+    console.log(addItemInput);
+    addItemSubmit.simulate("input", { target: { value: "WORKSTUPID" } });
+    // addItemInput.props.value = input;
+    console.log(addItemInput.get(0));
 
-  expect(result).not.toBeNull();
+    addItemSubmit.simulate("click");
+
+    expect(somethingsomething.onAdd).toMatch(input);
+  });
 });
 
-// Input should be an acceptable type: string for now
-// Is having a test string a bad idea? https://github.com/airbnb/enzyme/issues/76
-// Should handleAdd be part of this component instead of App?
+// https://github.com/airbnb/enzyme/issues/76
