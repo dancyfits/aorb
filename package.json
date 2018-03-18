@@ -4,15 +4,20 @@
   "homepage": "http://dancyfits.github.io/aorb",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "gh-pages": "^1.1.0",
+    "jest": "^22.4.2",
+    "jest-enzyme": "^6.0.0",
+    "jest-localstorage-mock": "^2.2.0",
     "lodash": "^4.17.4",
-    "node-sass-chokidar": "^0.0.3",
+    "node-sass-chokidar": "^1.1.2",
     "normalizecss": "^3.0.0",
     "npm-run-all": "^4.1.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.17",
-    "stylelint": "^8.4.0",
+    "react-scripts": "1.1.1",
+    "stylelint": "^9.1.3",
     "stylelint-config-standard": "^18.0.0",
     "stylelint-order": "^0.8.0",
     "stylelint-scss": "^2.2.0"
@@ -21,8 +26,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build-css": "node-sass-chokidar --include-path ./src src/ -o src/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar --include-path ./src src/ -o src/ --watch --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
@@ -32,9 +36,15 @@
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
-    "plugins": ["stylelint-order", "stylelint-scss"],
+    "plugins": [
+      "stylelint-order",
+      "stylelint-scss"
+    ],
     "rules": {
       "order/properties-alphabetical-order": true
+    },
+    "eslintConfig": {
+      "extends": "react-app"
     }
   }
 }
