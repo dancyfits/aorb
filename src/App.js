@@ -117,7 +117,7 @@ class App extends Component {
         {this.state.showList === true && (
           <div className="column1">
             <List items={this.state.data} onDelete={this.handleDelete} />
-            <AddItemForm items={this.state.data} onAdd={this.handleAdd} />
+            <AddItemForm onAdd={this.handleAdd} />
           </div>
         )}
 
