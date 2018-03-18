@@ -7,6 +7,9 @@ class AddItemForm extends Component {
         <form
           onSubmit={e => {
             e.preventDefault();
+            // (this.input.value.length !== 0 &&
+            //   this.props.onAdd(this.input.value)) ||
+            //   errormessageorsomething;
             this.props.onAdd(this.input.value);
             this.input.value = "";
           }}
