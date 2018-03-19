@@ -1,6 +1,7 @@
 # A or B
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/webpresenceio/aorb.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/webpresenceio/aorb.svg?branch=master)](https://travis-ci.org/webpresenceio/aorb)
 *WIP*
 
 ```
