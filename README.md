@@ -1,4 +1,6 @@
 # A or B
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/webpresenceio/aorb.svg)](https://greenkeeper.io/)
 *WIP*
 
 ```
