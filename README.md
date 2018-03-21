@@ -9,7 +9,7 @@ yarn install
 yarn start
 ```
 
-[Demo](https://dancyfits.github.io/aorb/)
+[Demo](https://webpresenceio.github.io/aorb/)
 
 Try adding some movies or bands you like.  Then click one of the two options to rank your favorites!  Allows for differing opinions (you and your partner can't figure out where to get dinner?). The more you pick the more accurate your results will be.
 
