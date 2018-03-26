@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { sampleSize, uniqueId, forEach, merge } from "lodash";
+import { mapValues, sampleSize, uniqueId } from "lodash";
 import { unset } from "lodash/fp";
 import "normalizecss/normalize.css";
 import { List, AorB, Results, AddItemForm } from "./components";
@@ -56,7 +56,7 @@ class App extends Component {
     this.setState({
       data: {
         ...this.state.data,
-        [id]: { name, rating: 1000, id }
+        [id]: { name, rating: 1000, id, timesBattled: 0 }
       }
     });
   };
@@ -68,15 +68,22 @@ class App extends Component {
   };
 
   handleSelect = (winner, loser) => {
+    const incTimesBattled = item => ({
+      ...item,
+      timesBattled: item.timesBattled + 1
+    });
+
     const itemsToUpdate = battle(winner, loser);
-    this.updateRatings(itemsToUpdate);
+    const updatedItems = itemsToUpdate.map(incTimesBattled);
+
+    this.updateRatings(updatedItems);
   };
 
   resetResults = () => {
-    const resetId = id => {
-      this.setState(merge(id, { rating: 1000 }));
-    };
-    forEach(this.state.data, resetId);
+    const updateRating = item => ({ ...item, rating: 1000 });
+    const updatedData = mapValues(this.state.data, updateRating);
+
+    this.setState({ data: updatedData });
   };
 
   updateRatings = ([a, b]) => {
